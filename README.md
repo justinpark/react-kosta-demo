@@ -4,6 +4,18 @@
 ### 개발 환경 설정
 * 노드 및 React 개발 환경 설정
 
+1. create-react-app
+```
+npm init react-app [앱 이름]
+cd create-react-app
+npm start
+```
+데모용
+```
+cd create-react-app
+npm install
+npm start
+```
 ### Javascript 기본 문법
 * Ecma 5, 6 유용한 문법들
 * React 기초 및 Lifecycle
