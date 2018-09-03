@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "aphrodite": "^2.2.3",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.5",
+    "react-with-styles": "^3.2.1",
+    "react-with-styles-interface-aphrodite": "^5.0.1",
     "redux": "^4.0.0"
   },
   "scripts": {
