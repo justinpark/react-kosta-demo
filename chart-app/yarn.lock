@@ -3515,6 +3515,14 @@ extsprintf@^1.2.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
 
+fake-xml-http-request@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/fake-xml-http-request/-/fake-xml-http-request-1.6.0.tgz#bd0ac79ae3e2660098282048a12c730a6f64d550"
+
+faker@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/faker/-/faker-4.1.0.tgz#1e45bbbecc6774b3c195fad2835109c6d748cc3f"
+
 fast-deep-equal@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-1.1.0.tgz#c053477817c86b51daa853c81e059b733d023614"
@@ -4355,6 +4363,10 @@ indexes-of@^1.0.1:
 indexof@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/indexof/-/indexof-0.0.1.tgz#82dc336d232b9062179d05ab3293a66059fd435d"
+
+inflected@^2.0.2:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/inflected/-/inflected-2.0.4.tgz#323770961ccbe992a98ea930512e9a82d3d3ef77"
 
 inflight@^1.0.4:
   version "1.0.6"
@@ -5648,6 +5660,15 @@ minizlib@^1.1.0:
   dependencies:
     minipass "^2.2.1"
 
+mirage-server@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/mirage-server/-/mirage-server-0.1.0.tgz#1d8bdea2b3b6c4519d23a81b93ab1ca1dfb35048"
+  dependencies:
+    faker "^4.1.0"
+    inflected "^2.0.2"
+    lodash "^4.17.4"
+    pretender "http://github.com/cowboyd/pretender#9ffecb8b789c6162e411ee8f023b5d635129a722"
+
 mississippi@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/mississippi/-/mississippi-2.0.0.tgz#3442a508fafc28500486feea99409676e4ee5a6f"
@@ -6643,6 +6664,13 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
+"pretender@http://github.com/cowboyd/pretender#9ffecb8b789c6162e411ee8f023b5d635129a722":
+  version "1.5.1"
+  resolved "http://github.com/cowboyd/pretender#9ffecb8b789c6162e411ee8f023b5d635129a722"
+  dependencies:
+    fake-xml-http-request "^1.6.0"
+    route-recognizer "^0.3.3"
+
 pretty-bytes@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/pretty-bytes/-/pretty-bytes-4.0.2.tgz#b2bf82e7350d65c6c33aa95aaa5a4f6327f61cd9"
@@ -7468,6 +7496,10 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
   dependencies:
     hash-base "^3.0.0"
     inherits "^2.0.1"
+
+route-recognizer@^0.3.3:
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/route-recognizer/-/route-recognizer-0.3.4.tgz#39ab1ffbce1c59e6d2bdca416f0932611e4f3ca3"
 
 rtl-css-js@^1.10.0:
   version "1.10.0"
