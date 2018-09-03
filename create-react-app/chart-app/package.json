@@ -23,6 +23,7 @@
     "@storybook/addons": "^3.4.10",
     "@storybook/react": "^3.4.10",
     "babel-core": "^6.26.3",
-    "babel-runtime": "^6.26.0"
+    "babel-runtime": "^6.26.0",
+    "redux-devtools-extension": "^2.13.5"
   }
 }

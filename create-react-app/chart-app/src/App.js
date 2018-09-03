@@ -8,7 +8,9 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.store = configureStore();
+    this.store = configureStore({
+      user: { name: 'test' },
+    });
   }
   render() {
     return (
