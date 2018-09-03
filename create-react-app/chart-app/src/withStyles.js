@@ -6,5 +6,6 @@ import Theme from './Theme';
 
 ThemedStyleSheet.registerTheme(Theme);
 ThemedStyleSheet.registerInterface(aphroditeInterface);
+const { responsive } = Theme;
 
-export { css, withStyles, withStylesPropTypes, ThemedStyleSheet };
+export { css, withStyles, withStylesPropTypes, responsive, ThemedStyleSheet };

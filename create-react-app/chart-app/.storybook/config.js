@@ -2,6 +2,8 @@ import path from 'path';
 import interopRequireDefault from 'babel-runtime/helpers/interopRequireDefault';
 import { configure } from '@storybook/react';
 
+import '../src/App.css';
+
 function requireComponent(srcFile, requireFn) {
   const componentName = path.basename(srcFile, path.extname(srcFile));
   const componentPath = path.dirname(srcFile).slice(2);

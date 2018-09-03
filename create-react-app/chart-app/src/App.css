@@ -20,3 +20,15 @@
 .App-intro {
   font-size: large;
 }
+
+html, body {
+  padding: 0;
+  background: #fff !important;
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
