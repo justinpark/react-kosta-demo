@@ -1,0 +1,215 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "this is the first element on the collection",
+      "authorId": 1
+    },
+    {
+      "id": 2,
+      "title": "And now time for a second one...",
+      "authorId": 2
+    },
+    {
+      "id": 3,
+      "title": "... and the last one.",
+      "authorId": 1
+    }
+  ],
+  "authors": [
+    {
+      "id": 1,
+      "name": "Santiago Camelo",
+      "email": "trikanna@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "Pepe Trueno",
+      "email": "pepetrueno@gmail.com"
+    }
+  ],
+  "coins": [
+    {
+      "id": "BTC",
+      "base": "BTC",
+      "currency": "KRW"
+    }
+  ],
+  "prices": [
+    {
+      "id": 7228374,
+      "coinId": "BTC",
+      "time":"2018-09-09T09:36:00Z"
+    },
+    {
+      "id": 7108906,
+      "coinId": "BTC",
+      "time": "2018-09-09T09:32:00Z"
+    },
+    {
+      "id": 7049172,
+      "coinId": "BTC",
+      "time": "2018-09-09T09:28:00Z"
+    },
+    {
+      "id": 6989437,
+      "coinId": "BTC",
+      "time": "2018-09-09T09:24:00Z"
+    },
+    {
+      "id": 6989065,
+      "coinId": "BTC",
+      "time": "2018-09-09T09:20:00Z"
+    },
+    {
+      "id": 6988704,
+      "coinId": "BTC",
+      "time": "2018-09-09T09:16:00Z"
+    },
+    {
+      "id": 6988783,
+      "coinId": "BTC",
+      "time": "2018-09-09T09:12:00Z"
+    },
+    {
+      "id": 6988817,
+      "coinId": "BTC",
+      "time": "2018-09-09T09:08:00Z"
+    },
+    {
+      "id": 6988862,
+      "coinId": "BTC",
+      "time": "2018-09-09T09:04:00Z"
+    },
+    {
+      "id": 6988862,
+      "coinId": "BTC",
+      "time": "2018-09-09T09:00:00Z"
+    },
+    {
+      "id": 6988862,
+      "coinId": "BTC",
+      "time": "2018-09-09T08:56:00Z"
+    },
+    {
+      "id": 6987891,
+      "coinId": "BTC",
+      "time": "2018-09-09T08:52:00Z"
+    },
+    {
+      "id": 6987395,
+      "coinId": "BTC",
+      "time": "2018-09-09T08:48:00Z"
+    },
+    {
+      "id": 6986909,
+      "coinId": "BTC",
+      "time": "2018-09-09T08:44:00Z"
+    },
+    {
+      "id": 6986898,
+      "coinId": "BTC",
+      "time": "2018-09-09T08:40:00Z"
+    },
+    {
+      "id": 6986898,
+      "coinId": "BTC",
+      "time": "2018-09-09T08:36:00Z"
+    },
+    {
+      "id": 6989697,
+      "coinId": "BTC",
+      "time": "2018-09-09T08:32:00Z"
+    },
+    {
+      "id": 6991096,
+      "coinId": "BTC",
+      "time": "2018-09-09T08:28:00Z"
+    },
+    {
+      "id": 6992496,
+      "coinId": "BTC",
+      "time": "2018-09-09T08:24:00Z"
+    },
+    {
+      "id": 6988884,
+      "coinId": "BTC",
+      "time": "2018-09-09T08:20:00Z"
+    },
+    {
+      "id": 6985273,
+      "coinId": "BTC",
+      "time": "2018-09-09T08:16:00Z"
+    },
+    {
+      "id": 6986898,
+      "coinId": "BTC",
+      "time": "2018-09-09T08:12:00Z"
+    },
+    {
+      "id": 6987711,
+      "coinId": "BTC",
+      "time": "2018-09-09T08:08:00Z"
+    },
+    {
+      "id": 6988523,
+      "coinId": "BTC",
+      "time": "2018-09-09T08:04:00Z"
+    },
+    {
+      "id": 6987812,
+      "coinId": "BTC",
+      "time": "2018-09-09T08:00:00Z"
+    },
+    {
+      "id": 6987101,
+      "coinId": "BTC",
+      "time": "2018-09-09T07:56:00Z"
+    },
+    {
+      "id": 6985849,
+      "coinId": "BTC",
+      "time": "2018-09-09T07:52:00Z"
+    },
+    {
+      "id": 6985228,
+      "coinId": "BTC",
+      "time": "2018-09-09T07:48:00Z"
+    },
+    {
+      "id": 6984596,
+      "coinId": "BTC",
+      "time": "2018-09-09T07:44:00Z"
+    },
+    {
+      "id": 6984833,
+      "coinId": "BTC",
+      "time": "2018-09-09T07:40:00Z"
+    },
+    {
+      "id": 6985070,
+      "coinId": "BTC",
+      "time": "2018-09-09T07:36:00Z"
+    },
+    {
+      "id": 6985149,
+      "coinId": "BTC",
+      "time": "2018-09-09T07:32:00Z"
+    },
+    {
+      "id": 6985183,
+      "coinId": "BTC",
+      "time": "2018-09-09T07:28:00Z"
+    },
+    {
+      "id": 6985228,
+      "coinId": "BTC",
+      "time": "2018-09-09T07:24:00Z"
+    },
+    {
+      "id": 6983061,
+      "coinId": "BTC",
+      "time": "2018-09-09T07:20:00Z"
+    }
+  ]
+}

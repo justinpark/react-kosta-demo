@@ -5,6 +5,7 @@ import { timeParse } from 'd3-time-format';
 
 import './App.css';
 
+import Api from './Api';
 import configureStore from './configureStore';
 import logo from './logo.svg';
 import Button from './components/Button';
@@ -26,12 +27,11 @@ const parseData = (parse) => {
 const parseDate = timeParse("%Y-%m-%d");
 
 function getData() {
-  const promiseMSFT = fetch("https://cdn.rawgit.com/rrag/react-stockcharts/master/docs/data/MSFT.tsv")
-    .then(response => response.text())
+  const promiseMSFT = Api.get("https://cdn.rawgit.com/rrag/react-stockcharts/master/docs/data/MSFT.tsv")
+    .then(({ data }) => data)
     .then(data => tsvParse(data, parseData(parseDate)))
   return promiseMSFT;
 }
-
 
 class App extends Component {
   constructor(props) {
@@ -46,7 +46,16 @@ class App extends Component {
   componentDidMount() {
 		getData().then(data => {
 			this.setState({ data });
-		})
+    })
+    Api.get('coins')
+      .then(({ data }) => data)
+      .then(json => {
+        // setTimeout(_ => {
+        //   this.setState({
+        //     data: json
+        //   });
+        // }, 2000);
+      });
 	}
   render() {
     return (
