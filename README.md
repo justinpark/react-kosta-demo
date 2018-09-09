@@ -1,5 +1,8 @@
 # 글로벌 SW 아카데미 3강 - React 와 Front-end 기술
 
+## 강의 슬라이드
+https://docs.google.com/presentation/d/1ngdb2EgivkcfjEhUJWiHYr5FJhxGAOj9emslcEk3dMw/edit?usp=sharing
+
 ## 1일차
 ### 개발 환경 설정
 * 노드 및 React 개발 환경 설정
