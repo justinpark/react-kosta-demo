@@ -1,9 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import withState from 'recompose/withState';
 import withModal, { SELL_MODAL, BUY_MODAL } from './withModal';
 // PureComponent => SFC
-function CoinTable({ coins, openModal, message, toggle, setToggle }) {
+function CoinTable({ coins, openModal, message, toggle }) {
   return (
     <div>
       {toggle && message}
@@ -39,8 +38,11 @@ function CoinTable({ coins, openModal, message, toggle, setToggle }) {
   );
 }
 
+CoinTable.defaultProps = {
+  coins: [],
+};
 CoinTable.propTypes = {
-
+  coins: PropTypes.arrayOf(PropTypes.any),
 };
 
 export default withModal(CoinTable);

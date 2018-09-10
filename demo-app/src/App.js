@@ -8,6 +8,7 @@ import AppNav from './AppNav';
 import CoinTable from './CoinTable';
 import withLoading from './withLoading';
 import withError from './withError';
+import Counter from './mobx/Counter';
 
 const CoinTableWithLoading = compose(
   withError('서버에 이상있음'),
