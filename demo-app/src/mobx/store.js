@@ -1,3 +1,11 @@
-import { observable } from 'mobx';
+import { observable, decorate } from 'mobx';
 
-export default observable({ counter: 0 });
+class Store {
+  counter = 0;
+}
+
+decorate(Store, {
+  counter: observable
+});
+
+export default new Store();
