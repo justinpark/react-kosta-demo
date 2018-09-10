@@ -13,9 +13,9 @@ const propTypes = {
 const defaultProps = {
 };
 
-function Button({ children, css, styles, primary, secondary }) {
+function Button({ children, css, styles, primary, secondary, onClick }) {
   return (
-    <button {...css(styles.button, primary && styles.primary, secondary && styles.secondary)}>
+    <button onClick={onClick} {...css(styles.button, primary && styles.primary, secondary && styles.secondary)}>
       {children}
     </button>
   );
