@@ -1,7 +1,9 @@
+import { handle } from 'redux-pack';
 import {
   ADD_RESOURCE,
   LOADING_RESOURCE,
   LOADED_RESOURCE,
+  REQUEST_RESOURCE,
 } from '../actions/resourceActionTypes';
 
 export const initialState = {
@@ -29,6 +31,17 @@ export default function(state = initialState, action = {}) {
       isLoading: false,
       entities: data,
     };
+  } else if (type === REQUEST_RESOURCE) {
+    const { data } = payload || {};
+    return handle(state, action, {
+      start: prevState => ({ ...prevState, isLoading: true }),
+      success: prevState => ({
+        ...prevState,
+        entities: data,
+        isLoading: true,
+      }),
+      finish: prevState => ({ ...prevState, isLoading: false }),
+    });
   }
   return state;
 }

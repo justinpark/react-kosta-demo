@@ -1,12 +1,15 @@
 import { connect } from 'react-redux';
 
 import CoinTable from '../CoinTable';
-import { loadingResourceAction, fetchTransaction } from '../actions/resourceActions';
+import { loadingResourceAction, fetchTransaction, fetchAll } from '../actions/resourceActions';
 
 const mapStateToProps = ({ resource }) => {
   const { isLoading, hasFetched, entities } = resource;
   return {
-    coins: entities,
+    coins: entities ? entities.map(({ name, price }) => ({
+      name,
+      totalValue: price,
+    })) : null,
     isLoading,
     hasFetched,
   };
@@ -14,7 +17,7 @@ const mapStateToProps = ({ resource }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetch: () => dispatch(fetchTransaction()),
+    fetch: () => dispatch(fetchAll()),
   };
 };
 
