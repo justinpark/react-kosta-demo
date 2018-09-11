@@ -1,8 +1,10 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import withModal, { SELL_MODAL, BUY_MODAL } from './withModal';
+import withModal from './withModal';
+import { SELL_MODAL, BUY_MODAL } from './ModalProvider';
+
 // PureComponent => SFC
-function CoinTable({ coins, openModal, message, toggle }) {
+function CoinTable({ coins, openModal, message, toggle, emptyMessage }) {
   return (
     <div>
       {toggle && message}
@@ -35,7 +37,7 @@ function CoinTable({ coins, openModal, message, toggle }) {
           <tbody>
             <tr>
               <td colSpan="4">
-                자료 없음
+                {emptyMessage}
               </td>
             </tr>
           </tbody>
@@ -47,9 +49,13 @@ function CoinTable({ coins, openModal, message, toggle }) {
     </div>
   );
 }
+CoinTable.defaultProps = {
+  emptyMessage: '자료없음',
+};
 
 CoinTable.propTypes = {
   coins: PropTypes.arrayOf(PropTypes.any),
+  emptyMessage: PropTypes.string,
 };
 
 export default withModal(CoinTable);

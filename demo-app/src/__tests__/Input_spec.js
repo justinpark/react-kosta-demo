@@ -39,5 +39,6 @@ describe('<Input>', () => {
     expect(stub.callCount).to.eq(0);
     wrapper.find('input').simulate('blur', { target: { value } });
     expect(stub.callCount).to.eq(1);
+    expect(stub.calledWith(value)).to.eq(true);
   });
 });
