@@ -4,23 +4,34 @@ import {
   LOADING_RESOURCE,
 } from './resourceActionTypes';
 
-function addResourceAction() {
+import Api from '../Api';
+
+export function addResourceAction() {
   return {
     type: ADD_RESOURCE,
   };
 }
 
-function loadingResourceAction() {
+export function loadingResourceAction() {
   return {
     type: LOADING_RESOURCE,
   };
 }
 
-function loadedResourceAction(data) {
+export function loadedResourceAction(data) {
   return {
     type: LOADED_RESOURCE,
     payload: {
       data,
     },
+  };
+}
+
+export function fetchTransaction() {
+  return dispatch => {
+    dispatch(loadingResourceAction());
+    return Api.get('transactions').then(({ data }) => {
+      dispatch(loadedResourceAction(data));
+    });
   };
 }

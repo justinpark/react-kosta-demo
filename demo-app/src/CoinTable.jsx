@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import withModal from './withModal';
+import withLoading from './withLoading';
 import { SELL_MODAL, BUY_MODAL } from './ModalProvider';
 
 // PureComponent => SFC
-function CoinTable({ coins, openModal, message, toggle, emptyMessage }) {
+function CoinTable({ coins, fetch, openModal, message, toggle, emptyMessage }) {
   return (
     <div>
       {toggle && message}
@@ -43,8 +43,8 @@ function CoinTable({ coins, openModal, message, toggle, emptyMessage }) {
           </tbody>
         )}
       </table>
-      <button className="btn" onClick={() => openModal(SELL_MODAL)}>
-        매도
+      <button className="btn" onClick={() => fetch()}>
+        새로고침
       </button>
     </div>
   );
@@ -58,4 +58,4 @@ CoinTable.propTypes = {
   emptyMessage: PropTypes.string,
 };
 
-export default (CoinTable);
+export default withLoading(false)(CoinTable);

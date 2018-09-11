@@ -10,7 +10,8 @@
     "react-dom": "^16.3.0",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.5",
-    "recompose": "^0.30.0"
+    "recompose": "^0.30.0",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start & npm run apiserver",
@@ -19,7 +20,7 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "apiserver": "json-server --watch --port 4000 mock/api.js"
+    "apiserver": "json-server --watch --delay 500 --port 4000 mock/api.js"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.10",

@@ -4,12 +4,12 @@ import {
   LOADED_RESOURCE,
 } from '../actions/resourceActionTypes';
 
-const initialState = {
+export const initialState = {
   isLoading: false,
   hasFetched: false,
 };
 
-export default function(state = initialState, action) {
+export default function(state = initialState, action = {}) {
   const { type, payload } = action;
   if (type === ADD_RESOURCE) {
     return {

@@ -12,29 +12,32 @@ import withError from './withError';
 import Counter from './mobx/Counter';
 import configureStore from './configureStore';
 import Api from './Api';
+import CoinTableContainer from './containers/CoinTableContainer';
 
-const CoinTableWithLoading = compose(
-  withError('서버에 이상있음'),
-  defaultProps({
-    coins: [],
-  }),
-  mapProps(({ coins, ...otherProps }) => ({
-    ...otherProps,
-    coins: coins.map(({
-      name,
-      total_value: totalValue,
-      current_value: currentValue,
-    }) => ({
-        name,
-        totalValue,
-        currentValue,
-      })),
-  })),
-)(CoinTable);
+// const CoinTableWithLoading = compose(
+//   withError('서버에 이상있음'),
+//   defaultProps({
+//     coins: [],
+//   }),
+//   mapProps(({ coins, ...otherProps }) => ({
+//     ...otherProps,
+//     coins: coins.map(({
+//       name,
+//       total_value: totalValue,
+//       current_value: currentValue,
+//     }) => ({
+//         name,
+//         totalValue,
+//         currentValue,
+//       })),
+//   })),
+// )(CoinTable);
 const AppNavWithLoading = compose(
   withError('관리자에게 문의해주세요'),
   withLoading,
 )(AppNav);
+
+const CoinTableWithLoading = withLoading(false)(CoinTable);
 
 // var str = 'name=park&age=20&height=175cm';
 // str.split('&');
@@ -118,7 +121,7 @@ class App extends Component {
       <Provider store={this.store}>
         <div className="App">
           <AppNav />
-          <CoinTableWithLoading coins={coins} message={'새로운 메세지'} hasError />
+          <CoinTableContainer />
         </div>
       </Provider>
     );
