@@ -41,13 +41,20 @@ export function fetchTransaction() {
 export function fetchAll() {
   return {
     type: REQUEST_RESOURCE,
-    promise: Api.get('transactions'),
+    promise: Api.get('transactions?_limit=10'),
+    meta: {
+      toast: {
+        onSuccess: '성공적이였습니다',
+        onFailure: '접속에 문제가 있습니다',
+      },
+    },
   };
 }
 
 export function updatePrice(id, price) {
   return {
     type: UPDATE_PRICE,
+    promise: Api.put('transactions'),
     payload: { id, price },
   };
 }

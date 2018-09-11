@@ -14,6 +14,7 @@ import configureStore from './configureStore';
 import Api from './Api';
 import CoinTableContainer from './containers/CoinTableContainer';
 import ModalProvider from './ModalProvider';
+import ToastContainer from './containers/ToastContainer';
 
 // const CoinTableWithLoading = compose(
 //   withError('서버에 이상있음'),
@@ -124,6 +125,7 @@ class App extends Component {
           <div className="App">
             <AppNav />
             <CoinTableContainer />
+            <ToastContainer />
           </div>
         </ModalProvider>
       </Provider>

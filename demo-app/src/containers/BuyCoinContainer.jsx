@@ -5,8 +5,12 @@ import { updatePrice } from '../actions/resourceActions';
 
 const mapStateToProps = (store, { id }) => {
   const { entities } = store.resource;
+  const { price, ...attrs } = entities[id];
 
-  return entities[id];
+  return {
+    ...attrs,
+    totalPrice: price,
+  };
 };
 
 const mapDispatchToProps = {

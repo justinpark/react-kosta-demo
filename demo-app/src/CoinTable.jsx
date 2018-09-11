@@ -20,16 +20,21 @@ function CoinTable({ coins, fetch, message, toggle, emptyMessage }) {
         {coins && (
           <tbody>
             {coins.map(({ id, name, totalValue, currentValue }) => (
-              <tr key={`tr_${name}`}>
+              <tr key={`tr_${id}`}>
                 <td>{name}</td>
                 <td>{totalValue}</td>
                 <td>{currentValue}</td>
                 <td>
                   <ModalConsumer>
                     {({ openModal }) => (
-                      <button className="btn" onClick={() => openModal(BUY_MODAL, { id })}>
-                      매수
-                      </button>
+                      <>
+                        <button className="btn" onClick={() => openModal(BUY_MODAL, { id })}>
+                          매수
+                        </button>
+                        <button className="btn red lighten-4" onClick={() => openModal(BUY_MODAL, { id })}>
+                          매도
+                        </button>
+                      </>
                     )}
                   </ModalConsumer>
                 </td>
