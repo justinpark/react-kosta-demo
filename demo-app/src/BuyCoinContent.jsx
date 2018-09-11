@@ -12,14 +12,14 @@ class BuyCoinContent extends PureComponent {
     return (
       <div>
         <h1>
-          코인 구매 하기
+          가격 수정 하기
         </h1>
         <h4>구매하려는 코인: {name}</h4>
         <h6></h6>
         <Text>가격</Text>
         <Input value={price}/>
         총 구매 비용: <Text>얼마</Text>
-        <Button onClick={}>수정</Button>
+        <Button>수정</Button>
       </div>
     );
   }
