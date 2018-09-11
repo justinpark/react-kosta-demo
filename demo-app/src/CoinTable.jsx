@@ -27,14 +27,14 @@ function CoinTable({ coins, fetch, message, toggle, emptyMessage }) {
                 <td>
                   <ModalConsumer>
                     {({ openModal }) => (
-                      <>
+                      <React.Fragment>
                         <button className="btn" onClick={() => openModal(BUY_MODAL, { id })}>
                           매수
                         </button>
                         <button className="btn red lighten-4" onClick={() => openModal(BUY_MODAL, { id })}>
                           매도
                         </button>
-                      </>
+                      </React.Fragment>
                     )}
                   </ModalConsumer>
                 </td>
