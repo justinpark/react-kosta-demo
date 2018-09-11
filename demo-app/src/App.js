@@ -11,6 +11,7 @@ import withLoading from './withLoading';
 import withError from './withError';
 import Counter from './mobx/Counter';
 import configureStore from './configureStore';
+import Api from './Api';
 
 const CoinTableWithLoading = compose(
   withError('서버에 이상있음'),
@@ -94,6 +95,9 @@ class App extends Component {
       },
     };
     this.store = configureStore(initState);
+  }
+  componentDidMount() {
+    Api.get('transactions');
   }
   render() {
     const coins = [{
