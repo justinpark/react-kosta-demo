@@ -28,7 +28,7 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "apiserver": "json-server --watch --port 4000 api/generator.js"
+    "apiserver": "json-server --watch --delay 300 --port 4000 api/generator.js"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": [

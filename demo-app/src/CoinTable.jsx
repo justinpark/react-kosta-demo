@@ -15,21 +15,31 @@ function CoinTable({ coins, openModal, message, toggle }) {
               <th>매수/매도</th>
           </tr>
         </thead>
-
-        <tbody>
-          {coins.map(({ name, totalValue, currentValue }) => (
-            <tr key={`tr_${name}`}>
-              <td>{name}</td>
-              <td>{totalValue}</td>
-              <td>{currentValue}</td>
-              <td>
-                <button className="btn" onClick={() => openModal(BUY_MODAL)}>
-                  매수
-                </button>
+        {coins && (
+          <tbody>
+            {coins.map(({ name, totalValue, currentValue }) => (
+              <tr key={`tr_${name}`}>
+                <td>{name}</td>
+                <td>{totalValue}</td>
+                <td>{currentValue}</td>
+                <td>
+                  <button className="btn" onClick={() => openModal(BUY_MODAL)}>
+                    매수
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        )}
+        {!coins && (
+          <tbody>
+            <tr>
+              <td colSpan="4">
+                자료 없음
               </td>
             </tr>
-          ))}
-        </tbody>
+          </tbody>
+        )}
       </table>
       <button className="btn" onClick={() => openModal(SELL_MODAL)}>
         매도
@@ -38,9 +48,6 @@ function CoinTable({ coins, openModal, message, toggle }) {
   );
 }
 
-CoinTable.defaultProps = {
-  coins: [],
-};
 CoinTable.propTypes = {
   coins: PropTypes.arrayOf(PropTypes.any),
 };
