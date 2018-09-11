@@ -1,5 +1,6 @@
 import { handle } from 'redux-pack';
 import {
+  INIT_RESOURCE,
   ADD_RESOURCE,
   LOADING_RESOURCE,
   LOADED_RESOURCE,
@@ -17,7 +18,20 @@ export const initialState = {
 
 export default function(state = initialState, action = {}) {
   const { type, payload } = action;
-  if (type === ADD_RESOURCE) {
+  if (type === INIT_RESOURCE) {
+    const { data } = payload;
+    const ids = data.map(({ id }) => id);
+    const entities = data.reduce((finalEntities, entity) => ({
+      ...finalEntities,
+      [entity.id]: entity,
+    }), {});
+    return {
+      ...state,
+      entities,
+      ids,
+      isLoading: false,
+    };
+  } else if (type === ADD_RESOURCE) {
     return {
       ...state,
       isLoading: false,

@@ -6,6 +6,7 @@
     "axios": "^0.18.0",
     "mobx": "^5.1.0",
     "mobx-react": "^5.2.8",
+    "next": "^6.1.2",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
     "react-redux": "^5.0.7",
@@ -16,6 +17,7 @@
   },
   "scripts": {
     "start": "react-scripts start & npm run apiserver",
+    "dev": "next & npm run apiserver",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",

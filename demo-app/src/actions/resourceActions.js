@@ -1,4 +1,5 @@
 import {
+  INIT_RESOURCE,
   ADD_RESOURCE,
   LOADED_RESOURCE,
   LOADING_RESOURCE,
@@ -7,6 +8,13 @@ import {
 } from './resourceActionTypes';
 
 import Api from '../Api';
+
+export function initResourceAction(data) {
+  return {
+    type: INIT_RESOURCE,
+    payload: { data },
+  };
+}
 
 export function addResourceAction() {
   return {
