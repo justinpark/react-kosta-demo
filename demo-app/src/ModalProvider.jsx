@@ -11,6 +11,9 @@ export const MODALS = {
   [SELL_MODAL]: SellCoinContent,
 };
 
+const { Provider, Consumer: ModalConsumer } = React.createContext('modal');
+export { ModalConsumer };
+
 class ModalProvider extends PureComponent {
   constructor(props) {
     super(props);
@@ -34,20 +37,25 @@ class ModalProvider extends PureComponent {
       showModal: false,
     }));
   }
-  getChildContext() {
-    return {
-      modal: {
-        openModal: this.handleOpen,
-        closeModal: this.handleClose,
-      },
-    };
-  }
+  // getChildContext() {
+  //   return {
+  //     modal: {
+  //       openModal: this.handleOpen,
+  //       closeModal: this.handleClose,
+  //     },
+  //   };
+  // }
   render() {
     const { children } = this.props;
     const { showModal } = this.state;
     const ModalComponent = MODALS[this.contentId];
     return (
-      <React.Fragment>
+      <Provider
+        value={{
+          openModal: this.handleOpen,
+          closeModal: this.handleClose,
+        }}
+      >
         {children}
         {showModal && ModalComponent && (
           <div>
@@ -62,7 +70,7 @@ class ModalProvider extends PureComponent {
             <div className="modal-overlay" style={{ zIndex: 1002, display: 'block', opacity: 0.5 }}></div>
           </div>
         )}
-      </React.Fragment>
+      </Provider>
     );
   }
 }
@@ -70,11 +78,11 @@ class ModalProvider extends PureComponent {
 ModalProvider.propTypes = {
   isOpen: PropTypes.bool,
 };
-ModalProvider.childContextTypes = {
-  modal: PropTypes.shape({
-    openModal: PropTypes.func,
-    closeModal: PropTypes.func,
-  }),
-};
+// ModalProvider.childContextTypes = {
+//   modal: PropTypes.shape({
+//     openModal: PropTypes.func,
+//     closeModal: PropTypes.func,
+//   }),
+// };
 
 export default ModalProvider;
