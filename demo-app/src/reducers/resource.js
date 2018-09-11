@@ -4,11 +4,15 @@ import {
   LOADING_RESOURCE,
   LOADED_RESOURCE,
   REQUEST_RESOURCE,
+  UPDATE_PRICE,
 } from '../actions/resourceActionTypes';
 
 export const initialState = {
   isLoading: false,
   hasFetched: false,
+  entities: {},
+  ids: [],
+  pagination: {},
 };
 
 export default function(state = initialState, action = {}) {
@@ -35,13 +39,35 @@ export default function(state = initialState, action = {}) {
     const { data } = payload || {};
     return handle(state, action, {
       start: prevState => ({ ...prevState, isLoading: true }),
-      success: prevState => ({
-        ...prevState,
-        entities: data,
-        isLoading: true,
-      }),
+      success: prevState => {
+        const ids = data.map(({ id }) => id);
+        const entities = data.reduce((finalEntities, entity) => ({
+          ...finalEntities,
+          [entity.id]: entity,
+        }), {});
+        return {
+          ...prevState,
+          entities,
+          ids,
+          isLoading: true,
+        };
+      },
       finish: prevState => ({ ...prevState, isLoading: false }),
     });
+  } else if (type === UPDATE_PRICE) {
+    const { id, price } = payload;
+    const { entities } = state;
+
+    return {
+      ...state,
+      entities: {
+        ...entities,
+        [id]: {
+          ...entities[id],
+          price,
+        },
+      },
+    };
   }
   return state;
 }

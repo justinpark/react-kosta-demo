@@ -1,15 +1,16 @@
 import { connect } from 'react-redux'; 
 
 import BuyCoinContent from '../BuyCoinContent';
+import { updatePrice } from '../actions/resourceActions';
 
 const mapStateToProps = (store, { id }) => {
   const { entities } = store.resource;
-  console.log('id', id);
-  const selectedItem = entities.find(({ id: entityId }) => entityId === id);
 
-  return {
-    ...selectedItem,
-  };
+  return entities[id];
 };
 
-export default connect(mapStateToProps)(BuyCoinContent)
+const mapDispatchToProps = {
+  updatePrice,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BuyCoinContent)
