@@ -8,7 +8,10 @@ class Input extends PureComponent {
     this.handleBlur = this.handleBlur.bind(this);
   }
   handleChange(e) {
-    this.props.onChange(e.target.value, e);
+    const { onChange } = this.props;
+    if (onChange) {
+      onChange(e.target.value, e)
+    }
   }
   handleBlur(e) {
     this.props.onBlur(e.target.value, e);
@@ -25,8 +28,8 @@ class Input extends PureComponent {
   }
 }
 
-Input.propTypes = {
-
+Input.defaultProps = {
+  onBlur: () => {},
 };
 
 export default Input;
