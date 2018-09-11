@@ -14,9 +14,9 @@ class Store {
 }
 
 decorate(Store, {
-  counter: observable,
-  current: observable,
-  elapsedTime: computed,
+  // counter: observable,
+  // current: observable,
+  // elapsedTime: computed,
   tick: action,
 });
 

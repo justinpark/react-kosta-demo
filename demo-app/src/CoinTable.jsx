@@ -58,4 +58,4 @@ CoinTable.propTypes = {
   emptyMessage: PropTypes.string,
 };
 
-export default withModal(CoinTable);
+export default (CoinTable);

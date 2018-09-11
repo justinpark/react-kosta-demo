@@ -3,12 +3,14 @@ import logo from './logo.svg';
 import compose from 'recompose/compose';
 import mapProps from 'recompose/mapProps';
 import defaultProps from 'recompose/defaultProps';
+import { Provider } from 'react-redux';
 
 import AppNav from './AppNav';
 import CoinTable from './CoinTable';
 import withLoading from './withLoading';
 import withError from './withError';
 import Counter from './mobx/Counter';
+import configureStore from './configureStore';
 
 const CoinTableWithLoading = compose(
   withError('서버에 이상있음'),
@@ -83,6 +85,16 @@ const parse = str =>
     }), {});
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    const initState = {
+      user: {
+        name: '아무개',
+        height: '170cm',
+      },
+    };
+    this.store = configureStore(initState);
+  }
   render() {
     const coins = [{
       name: '비트코인',
@@ -99,10 +111,12 @@ class App extends Component {
     }];
 
     return (
-      <div className="App">
-        <AppNav />
-        <CoinTableWithLoading coins={coins} message={'새로운 메세지'} hasError />
-      </div>
+      <Provider store={this.store}>
+        <div className="App">
+          <AppNav />
+          <CoinTableWithLoading coins={coins} message={'새로운 메세지'} hasError />
+        </div>
+      </Provider>
     );
   }
 }
