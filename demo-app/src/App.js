@@ -13,6 +13,7 @@ import Counter from './mobx/Counter';
 import configureStore from './configureStore';
 import Api from './Api';
 import CoinTableContainer from './containers/CoinTableContainer';
+import ModalProvider from './ModalProvider';
 
 // const CoinTableWithLoading = compose(
 //   withError('서버에 이상있음'),
@@ -119,10 +120,12 @@ class App extends Component {
 
     return (
       <Provider store={this.store}>
-        <div className="App">
-          <AppNav />
-          <CoinTableContainer />
-        </div>
+        <ModalProvider>
+          <div className="App">
+            <AppNav />
+            <CoinTableContainer />
+          </div>
+        </ModalProvider>
       </Provider>
     );
   }

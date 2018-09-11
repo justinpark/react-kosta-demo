@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import withLoading from './withLoading';
-import { SELL_MODAL, BUY_MODAL } from './ModalProvider';
+import { SELL_MODAL, BUY_MODAL, ModalConsumer } from './ModalProvider';
 
 // PureComponent => SFC
-function CoinTable({ coins, fetch, openModal, message, toggle, emptyMessage }) {
+function CoinTable({ coins, fetch, message, toggle, emptyMessage }) {
   return (
     <div>
       {toggle && message}
@@ -19,15 +19,19 @@ function CoinTable({ coins, fetch, openModal, message, toggle, emptyMessage }) {
         </thead>
         {coins && (
           <tbody>
-            {coins.map(({ name, totalValue, currentValue }) => (
+            {coins.map(({ id, name, totalValue, currentValue }) => (
               <tr key={`tr_${name}`}>
                 <td>{name}</td>
                 <td>{totalValue}</td>
                 <td>{currentValue}</td>
                 <td>
-                  <button className="btn" onClick={() => openModal(BUY_MODAL)}>
-                    매수
-                  </button>
+                  <ModalConsumer>
+                    {({ openModal }) => (
+                      <button className="btn" onClick={() => openModal(BUY_MODAL, { id })}>
+                      매수
+                      </button>
+                    )}
+                  </ModalConsumer>
                 </td>
               </tr>
             ))}

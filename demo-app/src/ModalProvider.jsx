@@ -1,13 +1,13 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import BuyCoinContent from './BuyCoinContent';
+import BuyCoinContainer from './containers/BuyCoinContainer';
 import SellCoinContent from './SellCoinContent';
 
 export const BUY_MODAL = 'buy_modal';
 export const SELL_MODAL = 'sell_modal';
 export const MODALS = {
-  [BUY_MODAL]: BuyCoinContent,
+  [BUY_MODAL]: BuyCoinContainer,
   [SELL_MODAL]: SellCoinContent,
 };
 

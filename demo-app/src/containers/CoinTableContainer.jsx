@@ -6,8 +6,8 @@ import { loadingResourceAction, fetchTransaction, fetchAll } from '../actions/re
 const mapStateToProps = ({ resource }) => {
   const { isLoading, hasFetched, entities } = resource;
   return {
-    coins: entities ? entities.map(({ name, price }) => ({
-      name,
+    coins: entities ? entities.map(({ price, ...props }) => ({
+      ...props,
       totalValue: price,
     })) : null,
     isLoading,
