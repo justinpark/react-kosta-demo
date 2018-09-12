@@ -7,8 +7,7 @@ import LoadingProvider from './LoadingProvider';
 import Text from './Text';
 
 // PureComponent => SFC
-function CoinTable({ coins, fetch, message, toggle, emptyMessage, loadingEntities }) {
-  console.log('loadingEntities', loadingEntities['2']);
+function CoinTable({ coins, fetch, fetchCoins, message, toggle, emptyMessage, loadingEntities }) {
   return (
     <div>
       {toggle && message}
@@ -62,6 +61,9 @@ function CoinTable({ coins, fetch, message, toggle, emptyMessage, loadingEntitie
       </table>
       <button className="btn" onClick={() => fetch()}>
         새로고침
+      </button>
+      <button className="btn" onClick={() => fetchCoins()}>
+        코인고침
       </button>
     </div>
   );

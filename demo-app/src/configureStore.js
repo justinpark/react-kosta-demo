@@ -5,6 +5,9 @@ import { devToolsEnhancer } from 'redux-devtools-extension';
 import compose from 'recompose/compose';
 
 import reducers from './reducers';
+import createReducers from './api-redux-pack/createReducers';
+
+const apiReducers = createReducers('transactions', 'coins', 'users');
 
 const finalCreateStore = compose(
   applyMiddleware(thunk, reduxPackMiddleware),
@@ -12,5 +15,5 @@ const finalCreateStore = compose(
 )(createStore);
 
 export default (initState) => {
-  return finalCreateStore(combineReducers(reducers), initState);
+  return finalCreateStore(combineReducers({ ...reducers, ...apiReducers }), initState);
 }
