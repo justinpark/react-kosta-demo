@@ -6,10 +6,12 @@ import {
   LOADED_RESOURCE,
   REQUEST_RESOURCE,
   UPDATE_PRICE,
+  UPDATE_RESOURCE,
 } from '../actions/resourceActionTypes';
 
 export const initialState = {
   isLoading: false,
+  loadingEntities: {},
   hasFetched: false,
   entities: {},
   ids: [],
@@ -67,6 +69,33 @@ export default function(state = initialState, action = {}) {
         };
       },
       finish: prevState => ({ ...prevState, isLoading: false }),
+    });
+  } else if (type === UPDATE_RESOURCE) {
+    const { id, data: entity } = payload || {};
+    return handle(state, action, {
+      start: prevState => ({
+        ...prevState,
+        loadingEntities: {
+          ...prevState.loadingEntities,
+          [id]: true,
+        },
+      }),
+      success: prevState => {
+        return {
+          ...prevState,
+          entities: {
+            ...prevState.entities,
+            [entity.id]: entity,
+          },
+        };
+      },
+      finish: prevState => ({
+        ...prevState,
+        loadingEntities: {
+          ...prevState.loadingEntities,
+          [entity.id]: false,
+        },
+      }),
     });
   } else if (type === UPDATE_PRICE) {
     const { id, price } = payload;

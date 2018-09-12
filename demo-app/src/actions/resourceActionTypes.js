@@ -4,7 +4,7 @@ const LOADING_RESOURCE = 'loading_resource';
 const LOADED_RESOURCE = 'loaded_resource';
 const REQUEST_RESOURCE = 'request_resouerce';
 const UPDATE_PRICE = 'update_price';
-
+const UPDATE_RESOURCE = 'update_resource';
 
 export {
   INIT_RESOURCE,
@@ -13,4 +13,5 @@ export {
   LOADED_RESOURCE,
   REQUEST_RESOURCE,
   UPDATE_PRICE,
+  UPDATE_RESOURCE,
 };

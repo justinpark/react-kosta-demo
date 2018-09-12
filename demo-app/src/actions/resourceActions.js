@@ -5,6 +5,7 @@ import {
   LOADING_RESOURCE,
   REQUEST_RESOURCE,
   UPDATE_PRICE,
+  UPDATE_RESOURCE,
 } from './resourceActionTypes';
 
 import Api from '../Api';
@@ -59,10 +60,10 @@ export function fetchAll() {
   };
 }
 
-export function updatePrice(id, price) {
+export function updatePrice(id, transaction) {
   return {
-    type: UPDATE_PRICE,
-    promise: Api.put('transactions'),
-    payload: { id, price },
+    type: UPDATE_RESOURCE,
+    promise: Api.put(`transactions/${id}`, transaction),
+    payload: { id },
   };
 }

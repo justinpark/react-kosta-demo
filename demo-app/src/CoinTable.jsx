@@ -3,8 +3,11 @@ import PropTypes from 'prop-types';
 import withLoading from './withLoading';
 import { SELL_MODAL, BUY_MODAL, ModalConsumer } from './ModalProvider';
 
+import LoadingProvider from './LoadingProvider';
+import Text from './Text';
+
 // PureComponent => SFC
-function CoinTable({ coins, fetch, message, toggle, emptyMessage }) {
+function CoinTable({ coins, fetch, message, toggle, emptyMessage, loadingEntities }) {
   return (
     <div>
       {toggle && message}
@@ -20,25 +23,29 @@ function CoinTable({ coins, fetch, message, toggle, emptyMessage }) {
         {coins && (
           <tbody>
             {coins.map(({ id, name, totalValue, currentValue }) => (
-              <tr key={`tr_${id}`}>
-                <td>{name}</td>
-                <td>{totalValue}</td>
-                <td>{currentValue}</td>
-                <td>
-                  <ModalConsumer>
-                    {({ openModal }) => (
-                      <React.Fragment>
-                        <button className="btn" onClick={() => openModal(BUY_MODAL, { id })}>
-                          매수
-                        </button>
-                        <button className="btn red lighten-4" onClick={() => openModal(BUY_MODAL, { id })}>
-                          매도
-                        </button>
-                      </React.Fragment>
-                    )}
-                  </ModalConsumer>
-                </td>
-              </tr>
+              <LoadingProvider isLoading={loadingEntities[id] || false}>
+                <tr key={`tr_${id}`}>
+                  <td>
+                    <Text>{name} loading: {loadingEntities[id]} {id}</Text>
+                  </td>
+                  <td><Text>{totalValue}</Text></td>
+                  <td><Text>{currentValue}</Text></td>
+                  <td>
+                    <ModalConsumer>
+                      {({ openModal }) => (
+                        <React.Fragment>
+                          <button className="btn" onClick={() => openModal(BUY_MODAL, { id })}>
+                            매수
+                          </button>
+                          <button className="btn red lighten-4" onClick={() => openModal(BUY_MODAL, { id })}>
+                            매도
+                          </button>
+                        </React.Fragment>
+                      )}
+                    </ModalConsumer>
+                  </td>
+                </tr>
+              </LoadingProvider>
             ))}
           </tbody>
         )}

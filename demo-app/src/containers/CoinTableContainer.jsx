@@ -4,14 +4,17 @@ import CoinTable from '../CoinTable';
 import { loadingResourceAction, fetchTransaction, fetchAll } from '../actions/resourceActions';
 
 const mapStateToProps = ({ resource }) => {
-  const { isLoading, hasFetched, entities, ids } = resource;
+  const { isLoading, hasFetched, entities, ids, loadingEntities } = resource;
   return {
-    coins: ids ? ids.map(id => ({
-      ...entities[id],
-      totalValue: entities[id].price,
-    })) : null,
+    coins: ids
+      ? ids.map(id => ({
+          ...entities[id],
+          totalValue: entities[id].price,
+        }))
+      : undefined,
     isLoading,
     hasFetched,
+    loadingEntities,
   };
 };
 
