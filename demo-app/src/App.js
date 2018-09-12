@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import compose from 'recompose/compose';
-import mapProps from 'recompose/mapProps';
-import defaultProps from 'recompose/defaultProps';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import AppNav from './AppNav';
 import CoinTable from './CoinTable';
@@ -12,10 +10,10 @@ import withError from './withError';
 import Counter from './mobx/Counter';
 import configureStore from './configureStore';
 import Api from './Api';
-import CoinTableContainer from './containers/CoinTableContainer';
 import ModalProvider from './ModalProvider';
-import ToastContainer from './containers/ToastContainer';
-import FilterContainer from './containers/FilterContainer';
+
+import AsyncHome from './AsyncHome';
+import AsyncUserPage from './AsyncUserPage';
 // const CoinTableWithLoading = compose(
 //   withError('서버에 이상있음'),
 //   defaultProps({
@@ -122,12 +120,13 @@ class App extends Component {
     return (
       <Provider store={this.store}>
         <ModalProvider>
-          <div className="App">
-            <AppNav />
-            <FilterContainer />
-            <CoinTableContainer />
-            <ToastContainer />
-          </div>
+          <Router>
+            <div className="App">
+              <AppNav />
+              <Route exact path="/" component={AsyncHome} />
+              <Route path="/user" component={AsyncUserPage} />
+            </div>
+          </Router>
         </ModalProvider>
       </Provider>
     );
