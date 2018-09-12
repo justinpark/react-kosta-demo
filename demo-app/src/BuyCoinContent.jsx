@@ -35,10 +35,7 @@ class BuyCoinContent extends PureComponent {
         </h1>
         <h4>구매하려는 코인: {name}</h4>
         <h6></h6>
-        <Text
-          noLoading={noLoading ? noLoading : undefined}
-          {...(isLoading && { hasFetched: true, })}
-        >가격</Text>
+        <Text noLoading>가격</Text>
         <Input value={price} onChange={this.handlePriceChange}/>
         총 구매 비용: <Text noLoading>얼마</Text>
         <Button onClick={() => updatePrice(id, {

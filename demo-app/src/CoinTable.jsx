@@ -8,6 +8,7 @@ import Text from './Text';
 
 // PureComponent => SFC
 function CoinTable({ coins, fetch, message, toggle, emptyMessage, loadingEntities }) {
+  console.log('loadingEntities', loadingEntities['2']);
   return (
     <div>
       {toggle && message}
@@ -23,10 +24,10 @@ function CoinTable({ coins, fetch, message, toggle, emptyMessage, loadingEntitie
         {coins && (
           <tbody>
             {coins.map(({ id, name, totalValue, currentValue }) => (
-              <LoadingProvider isLoading={loadingEntities[id] || false}>
+              <LoadingProvider loading={loadingEntities[id] || false}>
                 <tr key={`tr_${id}`}>
                   <td>
-                    <Text>{name} loading: {loadingEntities[id]} {id}</Text>
+                    <Text>{name}</Text>
                   </td>
                   <td><Text>{totalValue}</Text></td>
                   <td><Text>{currentValue}</Text></td>
