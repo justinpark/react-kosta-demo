@@ -15,7 +15,7 @@ import Api from './Api';
 import CoinTableContainer from './containers/CoinTableContainer';
 import ModalProvider from './ModalProvider';
 import ToastContainer from './containers/ToastContainer';
-
+import FilterContainer from './containers/FilterContainer';
 // const CoinTableWithLoading = compose(
 //   withError('서버에 이상있음'),
 //   defaultProps({
@@ -124,6 +124,7 @@ class App extends Component {
         <ModalProvider>
           <div className="App">
             <AppNav />
+            <FilterContainer />
             <CoinTableContainer />
             <ToastContainer />
           </div>

@@ -6,11 +6,12 @@ import compose from 'recompose/compose';
 
 import reducers from './reducers';
 import createReducers from './api-redux-pack/createReducers';
+import setFilterEffect from './middlewares/setFilterEffect';
 
 const apiReducers = createReducers('transactions', 'coins', 'users');
 
 const finalCreateStore = compose(
-  applyMiddleware(thunk, reduxPackMiddleware),
+  applyMiddleware(thunk, reduxPackMiddleware, setFilterEffect),
   devToolsEnhancer({ name: '비트코인앱' }),
 )(createStore);
 

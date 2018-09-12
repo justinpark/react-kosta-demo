@@ -38,11 +38,7 @@ class BuyCoinContent extends PureComponent {
         <Text noLoading>가격</Text>
         <Input value={price} onChange={this.handlePriceChange}/>
         총 구매 비용: <Text noLoading>얼마</Text>
-        <Button onClick={() => updatePrice(id, {
-          ...otherAttrs,
-          name,
-          price: Number(price),
-        })}>수정</Button>
+        <Button onClick={() => updatePrice(id, Number(price))}>수정</Button>
       </div>
     );
   }
