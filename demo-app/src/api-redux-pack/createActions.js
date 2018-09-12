@@ -18,7 +18,7 @@ export default (resourceName, key = 'id') => ({
   remove: () => {},
   create: () => {},
   update: (id, params = {}) => ({
-    type: FETCH_ALL,
+    type: UPDATE,
     promise: Api.put(`${resourceName}/${id}`, params.data),
     meta: {
       ...params.meta,
