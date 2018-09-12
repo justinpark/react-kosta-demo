@@ -1,11 +1,24 @@
 import {
+  LIFECYCLE,
+  SUCCESS,
+} from 'redux-pack';
+import {
+  INIT,
   FETCH_ALL,
   UPDATE,
   CREATE,
 } from './actionTypes';
 import Api from '../Api';
 
+
 export default (resourceName, key = 'id') => ({
+  init: (data) => ({
+    type: INIT,
+    meta: {
+      resourceName,
+    },
+    payload: { data },
+  }),
   fetch: () => {},
   fetchAll: (params = {}) => {
     const { query } = params;

@@ -1,5 +1,6 @@
 import { handle } from 'redux-pack';
 import {
+  INIT,
   FETCH_ALL,
   UPDATE,
   CREATE,
@@ -18,6 +19,19 @@ export default (...reducerNames) => {
       }
 
       switch (type) {
+        case INIT: {
+          const { data } = payload || {};
+          const ids = data.map(entity => entity[key]);
+          const entities = data.reduce((finalEntities, entity) => ({
+            ...finalEntities,
+            [entity[key]]: entity,
+          }), {});
+          return {
+            ...state,
+            entities,
+            ids,
+          };
+        }
         case CREATE:
         case UPDATE: {
           const { data: entity } = payload || {};
