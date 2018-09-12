@@ -53,6 +53,5 @@ describe('<CoinTableContainer>', () => {
     fetch();
     expect(fetchStub.callCount).to.eq(1);
     expect(fetchStub.calledWith('transactions?_limit=10')).to.eq(true);
-    expect(isLoading).to.eq(false);
   });
 });
