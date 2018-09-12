@@ -5,13 +5,13 @@ import { loadingResourceAction, fetchTransaction } from '../actions/resourceActi
 import { fetchTransactions } from '../actions/transactionActions';
 import { fetchAll as fetchCoinAll } from '../actions/coinActions';
 
-import { coinTransactionsSelector } from '../selectors/transactionSelectors';
+import { coinsSelector } from '../selectors/coinSelectors';
 
 const mapStateToProps = (store) => {
   const { isLoading, hasFetched, loadingEntities } = store.transactions;
 
   return {
-    coins: coinTransactionsSelector(store),
+    coins: coinsSelector(store),
     isLoading,
     hasFetched,
     loadingEntities,

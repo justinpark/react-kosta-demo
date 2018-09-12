@@ -37,7 +37,7 @@ function CoinTable({ coins, fetch, fetchCoins, message, toggle, emptyMessage, lo
                           <button className="btn" onClick={() => openModal(BUY_MODAL, { id })}>
                             매수
                           </button>
-                          <button className="btn red lighten-4" onClick={() => openModal(BUY_MODAL, { id })}>
+                          <button className="btn red lighten-4" onClick={() => openModal(SELL_MODAL, { id })}>
                             매도
                           </button>
                         </React.Fragment>
@@ -59,9 +59,6 @@ function CoinTable({ coins, fetch, fetchCoins, message, toggle, emptyMessage, lo
           </tbody>
         )}
       </table>
-      <button className="btn" onClick={() => fetch()}>
-        새로고침
-      </button>
       <button className="btn" onClick={() => fetchCoins()}>
         코인고침
       </button>

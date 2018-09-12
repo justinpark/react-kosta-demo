@@ -15,7 +15,11 @@ export const {
 export const fetchTransactions = () => selectorAction(
   filterSelector,
   filters => fetchAll({
-    query: filters,
+    query: {
+      _sort: 'createAt',
+      _order: 'asc',
+      ...filters
+    },
     meta: {
       toast: {
         onSuccess: '데이터를 가져왔습니다',

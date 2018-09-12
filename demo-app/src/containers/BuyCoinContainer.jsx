@@ -4,7 +4,7 @@ import BuyCoinContent from '../BuyCoinContent';
 import { updatePrice } from '../actions/transactionActions';
 
 const mapStateToProps = (store, { id }) => {
-  const { entities } = store.transactions;
+  const { entities } = store.coins;
   const attrs = entities[id];
 
   return attrs;

@@ -5,4 +5,4 @@ export const {
   fetchAll,
   remove,
   create,
-} = createActions('coins', 'name');
+} = createActions('coins', 'code');
