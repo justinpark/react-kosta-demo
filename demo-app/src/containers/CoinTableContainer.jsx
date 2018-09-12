@@ -2,18 +2,16 @@ import { connect } from 'react-redux';
 
 import CoinTable from '../CoinTable';
 import { loadingResourceAction, fetchTransaction } from '../actions/resourceActions';
-import { fetchAll } from '../actions/transactionActions';
+import { fetchTransactions } from '../actions/transactionActions';
 import { fetchAll as fetchCoinAll } from '../actions/coinActions';
 
-const mapStateToProps = ({ transactions }) => {
-  const { isLoading, hasFetched, entities, ids, loadingEntities } = transactions;
+import { coinTransactionsSelector } from '../selectors/transactionSelectors';
+
+const mapStateToProps = (store) => {
+  const { isLoading, hasFetched, loadingEntities } = store.transactions;
+
   return {
-    coins: ids
-      ? ids.map(id => ({
-          ...entities[id],
-          totalValue: entities[id].price,
-        }))
-      : undefined,
+    coins: coinTransactionsSelector(store),
     isLoading,
     hasFetched,
     loadingEntities,
@@ -22,7 +20,7 @@ const mapStateToProps = ({ transactions }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetch: () => dispatch(fetchAll()),
+    fetch: () => dispatch(fetchTransactions()),
     fetchCoins: () => dispatch(fetchCoinAll()),
   };
 };

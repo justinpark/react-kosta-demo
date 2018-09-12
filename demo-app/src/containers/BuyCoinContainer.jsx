@@ -1,16 +1,13 @@
 import { connect } from 'react-redux'; 
 
 import BuyCoinContent from '../BuyCoinContent';
-import { updatePrice } from '../actions/resourceActions';
+import { updatePrice } from '../actions/transactionActions';
 
 const mapStateToProps = (store, { id }) => {
-  const { entities } = store.resource;
-  const { price, ...attrs } = entities[id];
+  const { entities } = store.transactions;
+  const attrs = entities[id];
 
-  return {
-    ...attrs,
-    totalPrice: price,
-  };
+  return attrs;
 };
 
 const mapDispatchToProps = {

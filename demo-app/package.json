@@ -13,7 +13,8 @@
     "react-scripts": "1.1.5",
     "recompose": "^0.30.0",
     "redux-pack": "^0.1.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "reselect": "^3.0.1"
   },
   "scripts": {
     "start": "react-scripts start & npm run apiserver",
